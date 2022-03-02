@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="com.aspire.testcases.StepDefinition">
+        <classes>
+            <class name="com.aspire.testcases.StepDefinition">
+                <methods>
+                    <include name="login"/>
+                    <include name="CreateNewProduct"/>
+                    <include name="UpdateProductQuantity"/>
+                    <include name="CreatingManufacturingOrder"/>
+                    <include name="ValidatingCreatedManufacturingOrder"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
