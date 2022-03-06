@@ -1,7 +1,6 @@
 package com.aspire.pageObjects;
 
 import com.aspire.testcases.BaseClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,34 +17,36 @@ public class newproduct extends BaseClass {
     }
 
 
-        @FindBy(css = "#o_field_input_11")
+    @FindBy(css = "#o_field_input_11")
     WebElement ProductName;
 
-        @FindBy(xpath = "//button[contains(text(),'Save')]")
-        WebElement SaveButton;
+    @FindBy(xpath = "//button[contains(text(),'Save')]")
+    WebElement SaveButton;
 
-        @FindBy(xpath = "//span[contains(text(),'Update Quantity')]")
-        WebElement UpdateQuantity;
+    @FindBy(xpath = "//span[contains(text(),'Update Quantity')]")
+    WebElement UpdateQuantity;
 
-        @FindBy(xpath = "//header/nav[1]/a[1]")
-        WebElement HomeMenu;
+    @FindBy(xpath = "//header/nav[1]/a[1]")
+    WebElement HomeMenu;
 
-        public void setProductName(String productname){
-            waitForElementToAppear(xdriver, By.cssSelector("#o_field_input_11"),10);
-            ProductName.sendKeys(productname);
-        }
+    public void setProductName(String productname) {
+        waitForElementToAppear(xdriver, ProductName, 10);
+        ProductName.sendKeys(productname);
+        waitForElementToAppear(xdriver, SaveButton, 10);
 
-        public void clickSaveButton(){
-           // waitForElementToAppear(xdriver, By.xpath("//button[contains(text(),'Save')]"),10);
-            SaveButton.click();
-        }
+    }
 
-        public void clickUpdateQuantity(){
-            waitForElementToAppear(xdriver, By.xpath("//span[contains(text(),'Update Quantity')]"),10);
-            UpdateQuantity.click();
-        }
+    public void clickSaveButton() {
+        SaveButton.click();
+    }
 
-        public void clickHomeMenu(){
-            HomeMenu.click();
-        }
+    public void clickUpdateQuantity() {
+        waitForElementToAppear(xdriver, UpdateQuantity, 10);
+        UpdateQuantity.click();
+
+    }
+
+    public void clickHomeMenu() {
+        HomeMenu.click();
+    }
 }

@@ -1,7 +1,6 @@
 package com.aspire.pageObjects;
 
 import com.aspire.testcases.BaseClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,6 +16,7 @@ public class updatequantity extends BaseClass {
 
     }
 
+    ////button[normalize-space()='Create']
     @FindBy(xpath = "//button[contains(text(),'Create')]")
     WebElement CreateButton;
 
@@ -26,18 +26,21 @@ public class updatequantity extends BaseClass {
     @FindBy(xpath = "//button[contains(text(),'Save')]")
     WebElement Save;
 
-    public void clickCreateButton(){
-        CreateButton.click();
+    public void clickCreateButton() throws InterruptedException {
+       WebElement createButton = waitForElementToAppear(xdriver,CreateButton,10);
+       Thread.sleep(5000);
+       createButton.click();
+       waitForElementToAppear(xdriver, CountedQuantity,10);
     }
 
-    public void setCountedQuantity(){
-        //waitForElementToAppear(xdriver, By.xpath("//tbody/tr[1]/td[6]/input[1]"),5);
+    public void setCountedQuantity(String quantity) {
         CountedQuantity.clear();
-        CountedQuantity.sendKeys("12");
+        CountedQuantity.sendKeys(quantity);
+        waitForElementToAppear(xdriver, Save, 10);
+
     }
 
-    public void clickSaveButton(){
-        waitForElementToAppear(xdriver, By.xpath("//button[contains(text(),'Save')]"),5);
+    public void clickSaveButton() {
         Save.click();
     }
 }

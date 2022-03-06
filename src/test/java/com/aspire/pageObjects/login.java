@@ -8,7 +8,7 @@ public class login {
 
     WebDriver xdriver;
 
-    public login(WebDriver ydriver){
+    public login(WebDriver ydriver) {
         xdriver = ydriver;
         PageFactory.initElements(ydriver, this);
     }
@@ -22,15 +22,15 @@ public class login {
     @FindBy(xpath = "//button[contains(text(),'Log in')]")
     WebElement loginButton;
 
-    public void setUsername(){
-        username.sendKeys("user@aspireapp.com");
+    public void setUsername(String email) {
+        username.sendKeys(email);
     }
 
-    public void setPassword(){
-        password.sendKeys("@sp1r3app");
+    public void setPassword(String pwd) {
+        password.sendKeys(pwd);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         loginButton.click();
     }
 

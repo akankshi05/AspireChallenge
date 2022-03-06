@@ -1,12 +1,12 @@
 package com.aspire.pageObjects;
 
-import org.openqa.selenium.By;
+import com.aspire.testcases.BaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class dashboard {
+public class dashboard extends BaseClass {
 
     WebDriver xdriver;
 
@@ -16,17 +16,19 @@ public class dashboard {
     }
 
 
-        @FindBy(xpath = "//div[contains(text(),'Inventory')]")
-       WebElement Inventory;
+    @FindBy(xpath = "//div[contains(text(),'Inventory')]")
+    WebElement Inventory;
 
     @FindBy(css = "#result_app_2")
     WebElement Manufacturing;
 
-        public void clickInventory(){
-            Inventory.click();
-        }
+    public void clickInventory() {
+        Inventory.click();
 
-        public void clickManufacturing(){
-            Manufacturing.click();
-        }
+
+    }
+
+    public void clickManufacturing() {
+        Manufacturing.click();
+    }
 }

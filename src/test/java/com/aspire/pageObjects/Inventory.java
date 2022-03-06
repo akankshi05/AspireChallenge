@@ -1,7 +1,6 @@
 package com.aspire.pageObjects;
 
 import com.aspire.testcases.BaseClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,12 +21,12 @@ public class Inventory extends BaseClass {
     @FindBy(xpath = "//a[contains(text(),'Products')]")
     WebElement SubMenuOptionProduct;
 
-    public  void clickProductInMenu(){
-        waitForElementToAppear(xdriver, By.xpath("//span[contains(text(),'Products')]"),5);
+    public void clickProductInMenu() {
+        waitForElementToAppear(xdriver, MenuOptionProduct, 5);
         MenuOptionProduct.click();
     }
 
-    public  void clickSubMenuOptionProduct(){
+    public void clickSubMenuOptionProduct() {
         SubMenuOptionProduct.click();
     }
 }
